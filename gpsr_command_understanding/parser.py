@@ -234,3 +234,18 @@ class AnonymizingParser(object):
             return parse
         # Maybe anonymization is catching a word it shouldn't and moving the sentence outside the grammar. Try without
         return self.parser(utterance, **kwargs)
+
+
+class LearnedParser(object):
+    """
+    Parses with a learned predictor module
+    """
+
+    def __init__(self, predictor):
+        self.predictor = predictor
+
+    def __call__(self, utterance, **kwargs):
+        from allennlp.data.instance import Instance
+        if "verbose" in kwargs and kwargs["verbose"]:
+            pass
+        return self.predictor.predict_text(utterance)["digest"]
