@@ -2,3 +2,5 @@
 experiments/results*/
 *.swp
 venv/
+env/
+env/*
