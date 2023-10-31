@@ -140,6 +140,7 @@ trainer = Seq2SeqTrainer(
 
 
 # trainer.train()
+# trainer.push_to_hub
 
 
 
